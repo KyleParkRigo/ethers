@@ -47,12 +47,16 @@ async function test() {
     if (
       eventContractAddress[i] === "f63a6063cb3870b4b2a0d9753d1214166d979936"
     ) {
+      const eventName = token.getEventName("0x" + topic0[i]);
+      console.log(eventName);
       const eventFragment = token.getEvent(
         "0x" + topic0[i]
       ) as ethers.EventFragment;
       const event = token.decodeEventLog(eventFragment, "0x" + data[i]);
       console.log(event);
     } else {
+      const eventName = vault.getEventName("0x" + topic0[i]);
+      console.log(eventName);
       const eventFragment = vault.getEvent(
         "0x" + topic0[i]
       ) as ethers.EventFragment;
